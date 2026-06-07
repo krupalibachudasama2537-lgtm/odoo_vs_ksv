@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Redefining green theme variables with user's specific colors from photo */
+  --color-green-50: #f4f6f5;        /* Very light soft teal tint */
+  --color-green-100: #e6dfc8;       /* Circle 2: Sand/Beige */
+  --color-green-200: #d4ccae;       /* Slightly darker sand */
+  --color-green-300: #b9b091;       /* Medium sand highlight */
+  --color-green-400: #6da39a;       /* Lighter sage teal */
+  --color-green-500: #5a9289;       /* Medium sage teal */
+  --color-green-600: #4f847b;       /* Circle 3: Sage Green/Teal accent brand color */
+  --color-green-700: #3b655e;       /* Darker sage teal */
+  --color-green-800: #294742;       /* Darkest sage teal */
+  --color-green-900: #172b28;       /* Teal-black shade */
+  --color-green-950: #0d2c40;       /* Circle 1: Deep Navy/Slate Blue shadow color */
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 font-sans antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}
+
+/* Print CSS Stylesheet */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-card {
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* Dark Mode Overrides */
+.dark body {
+  background-color: #09090b !important; /* zinc-950 */
+  color: #f4f4f5 !important; /* zinc-100 */
+}
+
+.dark header, 
+.dark aside,
+.dark .bg-white {
+  background-color: #18181b !important; /* zinc-900 */
+  border-color: #27272a !important; /* zinc-800 */
+  color: #f4f4f5 !important;
+}
+
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-slate-900,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark th,
+.dark .font-bold {
+  color: #f4f4f5 !important;
+}
+
+.dark .text-slate-500,
+.dark .text-slate-600,
+.dark td,
+.dark p,
+.dark span.text-slate-600 {
+  color: #d4d4d8 !important; /* zinc-300 */
+}
+
+.dark .text-slate-400 {
+  color: #71717a !important; /* zinc-500 */
+}
+
+.dark .bg-slate-50 {
+  background-color: #09090b !important; /* zinc-950 page background */
+}
+
+.dark .bg-slate-100,
+.dark select,
+.dark input[type="text"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="date"],
+.dark textarea {
+  background-color: #27272a !important; /* zinc-800 inner elements */
+  border-color: #3f3f46 !important; /* zinc-700 */
+  color: #f4f4f5 !important;
+}
+
+.dark .border-slate-200,
+.dark .border-slate-100,
+.dark .divide-slate-100 > * {
+  border-color: #27272a !important; /* zinc-800 */
+}
+
+.dark .hover\:bg-slate-50\/50:hover,
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-100:hover,
+.dark tr:hover {
+  background-color: #27272a !important;
+}
+
+.dark .bg-green-50 {
+  background-color: rgba(79, 132, 123, 0.20) !important;
+  color: #8fc7be !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+}
+
+.dark .bg-purple-50 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  color: #c084fc !important;
+}
+
+.dark .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.15) !important;
+  color: #f43f5e !important;
+}
+
+/* SVG Chart Overrides */
+.dark svg text {
+  fill: #e4e4e7 !important; /* zinc-200 */
+}
+.dark svg text[fill="#16a34a"] {
+  fill: #4f847b !important;
+}
+.dark svg line {
+  stroke: #27272a !important; /* zinc-800 */
+}
+.dark svg circle[fill="#ffffff"] {
+  fill: #18181b !important; /* zinc-900 */
+}
+.dark svg circle[stroke="#f1f5f9"] {
+  stroke: #27272a !important;
+}
+
+/* Premium Animations */
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes popupEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-float-sway {
+  animation: floatSway 6s ease-in-out infinite;
+}
+
+.animate-popup {
+  animation: popupEntrance 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.delay-75 {
+  animation-delay: 75ms;
+}
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-150 {
+  animation-delay: 150ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
